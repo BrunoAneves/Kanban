@@ -1,4 +1,4 @@
-import React from 'react'
+import './style.module.css'
 import Task from './components/Task/Task'
 
 const App = () => {

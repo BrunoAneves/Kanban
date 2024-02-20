@@ -62,6 +62,7 @@ const Task = () => {
                     onDragStart={(e) => handleDragStart(e, task.id)}
                 >
                     {task.title}
+
                 </div>
             ));
     };
@@ -81,6 +82,7 @@ const Task = () => {
                 >
                     <h2>A Fazer</h2>
                     {renderTasks("fazer")}
+
                 </div>
 
                 <div
