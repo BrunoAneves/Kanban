@@ -4,27 +4,57 @@ import style from "./Task.module.css";
 interface Task {
     id: number;
     title: string;
+    description: string;
     status: string;
 }
 
 const Task = () => {
     const [tasks, setTasks] = React.useState<Task[]>([
-        { id: 1, title: "Tarefa 1", status: "fazer" },
-        { id: 2, title: "Tarefa 2", status: "fazendo" },
-        { id: 3, title: "Tarefa 3", status: "feito" },
+        {
+            id: 1,
+            title: "Tarefa 1",
+            description: "Descrição da tarefa 1",
+            status: "fazer",
+        },
+        // { id: 2, title: "Tarefa 2", status: "fazendo" },
+        // { id: 3, title: "Tarefa 3", status: "feito" },
     ]);
+
+
     const [newTaskTitle, setNewTaskTitle] = useState<string>("");
+    const [newDescription, setNewDescription] = useState<string>("");
 
     const handleAddTask = () => {
         if (newTaskTitle.trim() !== "") {
             const newTask: Task = {
                 id: tasks.length + 1,
                 title: newTaskTitle,
+                description: newDescription,
                 status: "fazer",
             };
             setTasks([...tasks, newTask]);
             setNewTaskTitle("");
+            setNewDescription("");
         }
+    };
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            handleAddTask();
+        }
+    };
+
+    const handleDescriptionChange = (
+        e: React.ChangeEvent<HTMLTextAreaElement>,
+        id: number
+    ) => {
+        const updatedTasks = tasks.map((task) => {
+            if (task.id === id) {
+                return { ...task, description: e.target.value };
+            }
+            return task;
+        });
+        setTasks(updatedTasks);
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,8 +91,15 @@ const Task = () => {
                     draggable
                     onDragStart={(e) => handleDragStart(e, task.id)}
                 >
-                    {task.title}
-
+                    {<div>{task.title}</div>}
+                    {
+                        <textarea
+                            className={style.textarea}
+                            value={task.description}
+                            onChange={(e) => handleDescriptionChange(e, task.id)} // Chama handleDescriptionChange para atualizar a descrição
+                            placeholder="Descrição da tarefa"
+                        />
+                    }
                 </div>
             ));
     };
@@ -70,7 +107,13 @@ const Task = () => {
     return (
         <>
             <div>
-                <input type="text" value={newTaskTitle} onChange={handleInputChange} />
+                <input
+                    type="text"
+                    value={newTaskTitle}
+                    onChange={handleInputChange}
+                    onKeyDown={handleKeyPress}
+                    tabIndex={0}
+                />
                 <button onClick={handleAddTask}>Adicionar Tarefa</button>
             </div>
 
@@ -82,7 +125,6 @@ const Task = () => {
                 >
                     <h2>A Fazer</h2>
                     {renderTasks("fazer")}
-
                 </div>
 
                 <div
