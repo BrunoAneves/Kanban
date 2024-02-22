@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './Cadastro.module.css'
 
 export type User = {
     id: number;
@@ -31,42 +32,44 @@ const Cadastro: React.FC = () => {
     }
 
     return (
-        <div>
-            <h2>Cadastro de Usuário</h2>
-            <form>
-                <div>
-                    <label htmlFor="nome">Nome:</label>
-                    <input
-                        type="text"
-                        id="nome"
-                        value={userNome}
-                        onChange={(e) => setUserNome(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={userEmail}
-                        onChange={(e) => setUserEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="senha">Senha:</label>
-                    <input
-                        type="password"
-                        id="senha"
-                        value={userPassword}
-                        onChange={(e) => setUserPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="button" onClick={handleRegister}>Cadastrar</button>
-            </form>
-        </div>
+        <div className={styles.container}>
+        <div className={styles.form}>
+             <h2>Cadastro de Usuário</h2>
+             </div>
+             <form className={styles.form}>
+                 <div>
+                     <label htmlFor="nome">Nome:</label>
+                     <input
+                         type="text"
+                         id="nome"
+                         value={userNome}
+                         onChange={(e) => setUserNome(e.target.value)}
+                         required
+                     />
+                 </div>
+                 <div>
+                     <label htmlFor="email">Email:</label>
+                     <input
+                         type="email"
+                         id="email"
+                         value={userEmail}
+                         onChange={(e) => setUserEmail(e.target.value)}
+                         required
+                     />
+                 </div>
+                 <div>
+                     <label htmlFor="senha">Senha:</label>
+                     <input
+                         type="password"
+                         id="senha"
+                         value={userPassword}
+                         onChange={(e) => setUserPassword(e.target.value)}
+                         required
+                     />
+                 </div>
+                 <button type="button" onClick={handleRegister}>Cadastrar</button>
+             </form>
+         </div>
     );
 }
 
