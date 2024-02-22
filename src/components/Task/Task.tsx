@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "./Task.module.css";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 interface Task {
     id: number;
@@ -80,6 +81,16 @@ const Task = () => {
         setTasks(updatedTasks);
     };
 
+
+
+    const handleDelete = (id: number) => {
+        const updatedTasks = tasks.filter(task => task.id !== id);
+        setTasks(updatedTasks);
+    };
+
+
+
+
     const renderTasks = (status: string) => {
         console.log(status);
         return tasks
@@ -91,30 +102,38 @@ const Task = () => {
                     draggable
                     onDragStart={(e) => handleDragStart(e, task.id)}
                 >
+
                     {<div>{task.title}</div>}
+
+
                     {
                         <textarea
                             className={style.textarea}
                             value={task.description}
-                            onChange={(e) => handleDescriptionChange(e, task.id)} // Chama handleDescriptionChange para atualizar a descrição
+                            onChange={(e) => handleDescriptionChange(e, task.id)}
                             placeholder="Descrição da tarefa"
                         />
                     }
+                    <button className={style.button_delete} onClick={() => handleDelete(task.id)}><FaRegTrashAlt /></button>
+
+
+
                 </div>
             ));
     };
 
     return (
         <>
-            <div>
+            <div className="container_addCards">
                 <input
+                    className="input"
                     type="text"
                     value={newTaskTitle}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyPress}
                     tabIndex={0}
                 />
-                <button onClick={handleAddTask}>Adicionar Tarefa</button>
+                <button className="buttonAdd" onClick={handleAddTask}>Adicionar Tarefa</button>
             </div>
 
             <div className={style.container}>

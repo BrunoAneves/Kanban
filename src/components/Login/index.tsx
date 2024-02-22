@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { User } from '../Cadastro';
 
+
+
 const Login: React.FC = () => {
 
     const [userEmail, setUserEmail] = useState<string>('');
@@ -36,33 +38,33 @@ const Login: React.FC = () => {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             ) : (
-                    <div>
-                        <h2>Login de Usuário</h2>
-                        <form>
-                            <div>
-                                <label htmlFor="email">Email:</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    value={userEmail}
-                                    onChange={(e) => setUserEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="senha">Senha:</label>
-                                <input
-                                    type="password"
-                                    id="senha"
-                                    value={userPassword}
-                                    onChange={(e) => setUserPassword(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <button type="button" onClick={handleLogin}>Login</button>
-                        </form>
-                    </div>
-                )}
+                <div>
+                    <h2>Login de Usuário</h2>
+                    <form>
+                        <div>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={userEmail}
+                                onChange={(e) => setUserEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="senha">Senha:</label>
+                            <input
+                                type="password"
+                                id="senha"
+                                value={userPassword}
+                                onChange={(e) => setUserPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <button type="button" onClick={handleLogin}>Login</button>
+                    </form>
+                </div>
+            )}
         </div>
     );
 }
