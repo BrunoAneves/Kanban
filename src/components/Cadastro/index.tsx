@@ -8,6 +8,7 @@ const Cadastro: React.FC = () => {
     const [userEmail, setUserEmail] = useState<string>('');
     const [userNome, setUserNome] = useState<string>('');
     const [userPassword, setUserPassword] = useState<string>('');
+    const [isPasswordFocused, setIsPasswordFocused] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const handleRegister = () => {
@@ -30,8 +31,13 @@ const Cadastro: React.FC = () => {
     };
 
     const isFormValid = () => {
-        return userNome.length >= 3 && userEmail.length >= 3 && userPassword.length >= 3;
+        return userNome.length >= 3 && userEmail.length >= 3 && userPassword.length >= 6;
     };
+
+    const isUpperCase = /[A-Z]/.test(userPassword);
+    const isLowerCase = /[a-z]/.test(userPassword);
+    const hasNumber = /\d/.test(userPassword);
+    const isLengthValid = userPassword.length >= 6;
 
     return (
         <div className={styles.container}>
@@ -66,8 +72,26 @@ const Cadastro: React.FC = () => {
                         id="senha"
                         value={userPassword}
                         onChange={(e) => setUserPassword(e.target.value)}
+                        onFocus={() => setIsPasswordFocused(true)}
+                        onBlur={() => setIsPasswordFocused(false)}
                         required
                     />
+                    {isPasswordFocused && (
+                        <div className={styles.passwordRequirements}>
+                           <div className={`${styles.requirement} ${isUpperCase ? styles.filled : ''} ${isUpperCase ? styles.filledRequirement : ''}`}>
+                                <small>Pelo menos 1 letra maiúscula</small>
+                            </div>
+                            <div className={`${styles.requirement} ${isLowerCase ? styles.filled : ''} ${isUpperCase ? styles.filledRequirement : ''}`}>
+                                <small>Pelo menos 1 letra minúscula</small>
+                            </div>
+                            <div className={`${styles.requirement} ${hasNumber ? styles.filled : ''} ${isUpperCase ? styles.filledRequirement : ''}`}>
+                                <small>Pelo menos 1 número</small>
+                            </div>
+                            <div className={`${styles.requirement} ${isLengthValid ? styles.filled : ''}`}>
+                                <small>Mínimo de 6 caracteres</small>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <button type="button" onClick={handleRegister} disabled={!isFormValid()}>
                     Cadastrar

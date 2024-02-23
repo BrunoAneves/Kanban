@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Task.module.css";
 import { FaRegTrashAlt } from "react-icons/fa";
 
@@ -9,18 +9,23 @@ interface Task {
   status: string;
 }
 
-const Task = () => {
-  const [tasks, setTasks] = React.useState<Task[]>([
-    {
-      id: 1,
-      title: "Tarefa 1",
-      description: "Descrição da tarefa 1",
-      status: "fazer",
-    },
-  ]);
-
+const TaskComponent: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState<string>("");
   const [newDescription, setNewDescription] = useState<string>("");
+
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleAddTask = () => {
     if (newTaskTitle.trim() !== "") {
@@ -163,4 +168,4 @@ const Task = () => {
   );
 };
 
-export default Task;
+export default TaskComponent;

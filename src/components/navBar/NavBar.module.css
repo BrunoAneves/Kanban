@@ -1,0 +1,56 @@
+/* Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.userSection {
+    display: flex;
+    align-items: center;
+}
+
+.userName {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.logoutButton {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginLink,
+.registerLink {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .userSection {
+        margin-top: 10px;
+    }
+
+    .logoutButton {
+        margin-top: 10px;
+    }
+}
