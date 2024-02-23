@@ -121,6 +121,7 @@ const TaskComponent: React.FC = () => {
 
   return (
     <>
+    
       <div className={style.container_addCards}>
         <input
           className={style.addTaskInput}
@@ -164,6 +165,7 @@ const TaskComponent: React.FC = () => {
           {renderTasks("feito")}
         </div>
       </div>
+
     </>
   );
 };

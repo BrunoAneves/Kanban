@@ -1,32 +1,22 @@
 // Navbar.tsx
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { User } from '../../types/type';
 import styles from './NavBar.module.css';
 
 interface NavbarProps {
+    isLoggedIn: boolean;
+    user: User | null;
     onLogout: () => void;
+    onLogin: (userData: User) => void; // Adicione essa propriedade
 }
-
-const Navbar: React.FC<NavbarProps> = ({ onLogout }) => {
+  
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, user, onLogout }) => {
     const navigate = useNavigate();
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-    const [user, setUser] = useState<User | null>(null);
-
-    useEffect(() => {
-        const storedUserData = localStorage.getItem('userData');
-        if (storedUserData) {
-            const userData = JSON.parse(storedUserData);
-            setUser(userData);
-            setIsLoggedIn(true);
-        }
-    }, []);
 
     const handleLogout = () => {
         onLogout();
         localStorage.removeItem('userData');
-        setUser(null);
-        setIsLoggedIn(false);
         navigate('/');
     };
 
@@ -34,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLogout }) => {
         <nav className={styles.navbar}>
             <div className={styles.navbarBrand}>
                 <NavLink to="/" className={styles.logo}>
-                    Todo App
+                    Kabanzinho 
                 </NavLink>
             </div>
             {isLoggedIn && user ? (

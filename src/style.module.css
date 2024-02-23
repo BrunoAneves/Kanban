@@ -4,12 +4,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    background-color: #202020 ;
+}
 body {
-    background-color: #202020;
+    background-color: #202020 ;
     
 }
-
+#root{
+    background-color: #202020 ;  
+}
 h1,
 h2,
 h3,

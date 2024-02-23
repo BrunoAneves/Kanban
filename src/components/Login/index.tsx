@@ -1,4 +1,3 @@
-// Login.tsx
 import React, { useState } from 'react';
 import { User } from '../../types/type';
 import { useNavigate } from 'react-router-dom';
