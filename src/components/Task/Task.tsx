@@ -28,7 +28,7 @@ const Task = () => {
     const handleAddTask = () => {
         if (newTaskTitle.trim() !== "") {
             const newTask: Task = {
-                id: tasks.length + 1,
+                id: Math.floor(Math.random() * 1000),
                 title: newTaskTitle,
                 description: newDescription,
                 status: "fazer",
@@ -65,30 +65,25 @@ const Task = () => {
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: number) => {
         e.dataTransfer.setData("id", id.toString());
     };
-
     const handleDrop = (
         e: React.DragEvent<HTMLDivElement>,
         newStatus: string
     ) => {
         e.preventDefault();
         const taskId = e.dataTransfer.getData("id");
-        const updatedTasks = tasks.map((task) => {
-            if (task.id === parseInt(taskId)) {
-                return { ...task, status: newStatus };
-            }
-            return task;
-        });
-        setTasks(updatedTasks);
+        const draggedTask = tasks.find(task => task.id === parseInt(taskId));
+        if (draggedTask) {
+            const updatedTasks = tasks.filter(task => task.id !== draggedTask.id);
+            const newTaskList = [...updatedTasks, { ...draggedTask, status: newStatus }];
+            setTasks(newTaskList);
+        }
     };
 
 
-
-    const handleDelete = (id: number) => {
-        const updatedTasks = tasks.filter(task => task.id !== id);
-        setTasks(updatedTasks);
-    };
-
-
+ const handleDelete = (id:number)=>{
+    const filteredTasks=tasks.filter(val=> val.id !==id)
+    setTasks([...filteredTasks])
+    }
 
 
     const renderTasks = (status: string) => {
@@ -132,6 +127,7 @@ const Task = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyPress}
                     tabIndex={0}
+                    maxLength={30}
                 />
                 <button className="buttonAdd" onClick={handleAddTask}>Adicionar Tarefa</button>
             </div>
