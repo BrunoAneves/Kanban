@@ -84,6 +84,7 @@
   background-color: #f5ec77;
   border-radius: 5px;
   padding: 5px;
+  border: 1px solid black;
 }
 
 .colunmFazendo .textarea {
@@ -91,6 +92,7 @@
   background-color: #8dffff;
   border-radius: 5px;
   padding: 5px;
+  border: 1px solid black;
 }
 
 .colunmFeito .textarea {
@@ -98,6 +100,7 @@
   background-color: #5ee682;
   border-radius: 5px;
   padding: 5px;
+  border: 1px solid black;
 }
 
 .textarea {
