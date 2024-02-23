@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User } from '../Cadastro';
+import { User } from '../../types/type';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 
@@ -27,7 +27,9 @@ const Login: React.FC = () => {
             }
         }
     };
-
+    const handleRegister = () =>{
+        navigate('/cadastro');
+    }
     const handleLogout = () => {
         setIsLoggedIn(false);
     };
@@ -70,6 +72,8 @@ const Login: React.FC = () => {
                             
                         </div>
                         <button type="button" onClick={handleLogin}>Login</button>
+
+                        <button type="button" onClick={handleRegister}>Cadastre-se</button>
                     </form>
                 </div>
             )}

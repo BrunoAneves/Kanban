@@ -1,4 +1,4 @@
-/* Estilos para o formulário de cadastro */
+
 .container {
     display: flex;
     flex-direction: column;
@@ -49,7 +49,15 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+ 
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #666;
+  border: 1px solid #999;
+}
+
   .form button:hover {
     background-color: #4caf91;
   }
