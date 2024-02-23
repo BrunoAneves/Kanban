@@ -1,165 +1,185 @@
 .container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
 
-    padding: 50px;
+  padding: 50px;
 }
 
 .colunmFazer,
 .colunmFazendo,
 .colunmFeito {
-    padding: 10px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    min-height: 80vh;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  min-height: 80vh;
 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .colunmFazer {
-    background-color: hsl(205, 100%, 93%, 0.959);
+  background-color: hsl(205, 100%, 93%, 0.959);
 }
 
-
 .colunmFazendo {
-    background-color: hsla(41, 81%, 92%, 0.959);
-    
-
+  background-color: hsla(41, 81%, 92%, 0.959);
 }
 
 .colunmFeito {
-    background-color: hsl(135, 100%, 94%, 0.959);
-
-
+  background-color: hsl(135, 100%, 94%, 0.959);
 }
 
-
 .fazer {
-    position: relative;
-    text-align: left;
-    color: #1a1a1a;
-    font-size: 1rem;
-    height: 100px;
-    border-radius: 5px;
-    background-color: #35a1f4;
+  position: relative;
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 1rem;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #35a1f4;
 
-    word-wrap: break-word;
-    
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    min-height: 150px;
+  word-wrap: break-word;
+
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 150px;
 }
 
 .fazendo {
-    position: relative;
-    text-align: left;
-    color: #1a1a1a;
-    font-size: 1rem;
-    height: 100px;
-    border-radius: 5px;
-    background-color: #ffb001;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    min-height: 150px;
-
+  position: relative;
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 1rem;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #ffb001;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 150px;
 }
 
 .feito {
-    position: relative;
+  position: relative;
 
-    text-align: left;
-    color: #1a1a1a;
-    font-size: 1rem;
-    height: 100px;
-    border-radius: 5px;
-    background-color: #43c466;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    min-height: 150px;
-
+  text-align: left;
+  color: #1a1a1a;
+  font-size: 1rem;
+  height: 100px;
+  border-radius: 5px;
+  background-color: #43c466;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 150px;
 }
-
 
 .colunmFazer .textarea {
-    resize: none;
-    background-color: #66bdff;
-    border-radius: 5px;
-    padding: 5px;
+  resize: none;
+  background-color: #66bdff;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-
 .colunmFazendo .textarea {
-    resize: none;
-    background-color: #ffdb8d;
-    border-radius: 5px;
-    padding: 5px;
+  resize: none;
+  background-color: #ffdb8d;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .colunmFeito .textarea {
-    resize: none;
-    background-color: #5ee682;
-    border-radius: 5px;
-    padding: 5px;
+  resize: none;
+  background-color: #5ee682;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-
-
 .textarea {
-    outline: none;
-    margin-top: 20px;
-    width: 100%;
-    height: 80px;
+  outline: none;
+  margin-top: 20px;
+  width: 100%;
+  height: 80px;
 }
 
 .textarea::-webkit-scrollbar {
-    width: 5px;
-
+  width: 5px;
 }
 
 .textarea::-webkit-scrollbar-track {
-    background: none;
-
+  background: none;
 }
 
 .textarea::-webkit-scrollbar-thumb {
-    background-color: rgb(17, 69, 190);
-
-    border-radius: 20px;
-
-    border: 2px solid rgba(255, 255, 255, 0);
-
+  background-color: rgb(17, 69, 190);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
-
 
 .container_addCards {
-    margin: 0 auto;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 10px;
 }
 
+.addTaskInput {
+  padding: 5px;
+  width: 20%;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 2px;
+}
+@media (max-width: 769px) {
+    .container_addCards {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .addTaskInput {
+        width: 100%;
+        padding: 10px;
+    }
+    .buttonAdd {
+        width: 100%;
+    }
+}
+
+.buttonAdd {
+  background-color: #66cdaa;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: medium;
+}
 
 .button_delete {
-    opacity: 1;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    background: none;
-    border: none;
+  opacity: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
 }
 
 .button_delete:hover {
-    opacity: 1;
-    transition: 0.5s;
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .button_delete svg {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
