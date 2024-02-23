@@ -20,15 +20,15 @@
 }
 
 .colunmFazer {
-  background-color: hsl(205, 100%, 93%, 0.959);
+  background-color: hsla(51, 84%, 67%, 0.959);
 }
 
 .colunmFazendo {
-  background-color: hsla(41, 81%, 92%, 0.959);
+  background-color: hsla(202, 65%, 79%, 0.959);
 }
 
 .colunmFeito {
-  background-color: hsl(135, 100%, 94%, 0.959);
+  background-color: hsla(134, 79%, 65%, 0.959);
 }
 
 .fazer {
@@ -38,7 +38,8 @@
   font-size: 1rem;
   height: 100px;
   border-radius: 5px;
-  background-color: #35a1f4;
+  background-color: #f8d407;
+  border: 1px solid black;
 
   word-wrap: break-word;
 
@@ -55,11 +56,12 @@
   font-size: 1rem;
   height: 100px;
   border-radius: 5px;
-  background-color: #ffb001;
+  background-color: #01d9ff;
   padding: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
   min-height: 150px;
+  border: 1px solid black;
 }
 
 .feito {
@@ -70,23 +72,23 @@
   font-size: 1rem;
   height: 100px;
   border-radius: 5px;
-  background-color: #43c466;
+  background-color: #05cf3b;
   padding: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
   min-height: 150px;
+  border: 1px solid black;
 }
-
 .colunmFazer .textarea {
   resize: none;
-  background-color: #66bdff;
+  background-color: #f5ec77;
   border-radius: 5px;
   padding: 5px;
 }
 
 .colunmFazendo .textarea {
   resize: none;
-  background-color: #ffdb8d;
+  background-color: #8dffff;
   border-radius: 5px;
   padding: 5px;
 }
